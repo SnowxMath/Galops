@@ -20,21 +20,21 @@ export default function BottomNav() {
       style={{ paddingBottom: "var(--safe-bottom)" }}
       aria-label="Navigation principale"
     >
-      <ul className="mx-auto flex max-w-2xl">
+      <ul className="mx-auto flex max-w-2xl px-2 py-1.5">
         {TABS.map((t) => {
           const active = t.match(pathname);
           return (
             <li key={t.href} className="flex-1">
               <Link
                 href={t.href}
-                className={`flex flex-col items-center gap-0.5 py-2.5 text-xs font-medium transition ${
+                className={`mx-auto flex flex-col items-center gap-0.5 rounded-2xl py-2 text-[11px] font-bold transition-all ${
                   active
-                    ? "text-prairie-600 dark:text-prairie-400"
-                    : "text-brand-500 dark:text-brand-400"
+                    ? "bg-prairie-50 text-prairie-700 dark:bg-prairie-500/15 dark:text-prairie-400"
+                    : "text-brand-400 dark:text-brand-500"
                 }`}
                 aria-current={active ? "page" : undefined}
               >
-                <span className={`text-xl leading-none ${active ? "scale-110" : ""} transition`}>
+                <span className={`text-[22px] leading-none transition ${active ? "scale-110" : ""}`}>
                   {t.icon}
                 </span>
                 {t.label}
