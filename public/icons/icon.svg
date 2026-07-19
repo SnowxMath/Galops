@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Galops FFE">
+  <rect width="512" height="512" rx="96" fill="#2c6540"/>
+  <!-- Fer à cheval stylisé -->
+  <g fill="none" stroke="#f0f7f2" stroke-width="34" stroke-linecap="round">
+    <path d="M176 128
+             a92 120 0 1 0 160 0"/>
+  </g>
+  <g fill="#f0f7f2">
+    <circle cx="176" cy="132" r="15"/>
+    <circle cx="336" cy="132" r="15"/>
+    <circle cx="150" cy="220" r="13"/>
+    <circle cx="362" cy="220" r="13"/>
+    <circle cx="168" cy="300" r="13"/>
+    <circle cx="344" cy="300" r="13"/>
+  </g>
+  <text x="256" y="452" text-anchor="middle" font-family="system-ui, sans-serif"
+        font-size="96" font-weight="700" fill="#f0f7f2">G</text>
+</svg>

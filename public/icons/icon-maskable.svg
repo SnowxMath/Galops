@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Galops FFE">
+  <!-- Version maskable : fond plein sur toute la surface, motif dans la zone sûre. -->
+  <rect width="512" height="512" fill="#2c6540"/>
+  <g fill="none" stroke="#f0f7f2" stroke-width="30" stroke-linecap="round">
+    <path d="M192 168 a80 104 0 1 0 128 0"/>
+  </g>
+  <g fill="#f0f7f2">
+    <circle cx="192" cy="172" r="13"/>
+    <circle cx="320" cy="172" r="13"/>
+    <circle cx="172" cy="248" r="11"/>
+    <circle cx="340" cy="248" r="11"/>
+  </g>
+  <text x="256" y="392" text-anchor="middle" font-family="system-ui, sans-serif"
+        font-size="76" font-weight="700" fill="#f0f7f2">G</text>
+</svg>
