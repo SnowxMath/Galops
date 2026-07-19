@@ -25,11 +25,6 @@ export default function SchemaViewer({ id, legende }: { id: string; legende: str
         </button>
       </div>
       <Comp showLabels={show} />
-      {!show && (
-        <p className="mt-2 text-center text-xs text-brand-500 dark:text-brand-300">
-          Retrouve chaque numéro… puis affiche les labels pour vérifier.
-        </p>
-      )}
     </figure>
   );
 }

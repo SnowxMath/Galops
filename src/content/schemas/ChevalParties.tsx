@@ -1,66 +1,90 @@
 import React from "react";
-import { Label, NumberedLegend } from "./primitives";
+import { Pin, NumberedLegend } from "./primitives";
 
-/** Points désignés sur le cheval (silhouette de profil, tête à gauche). */
+/** Parties du cheval — illustration originale, profil tête à gauche. */
 const POINTS = [
-  { x: 70, y: 95, tx: 20, ty: 70, text: "Tête", anchor: "start" as const },
-  { x: 118, y: 88, tx: 95, ty: 40, text: "Crinière", anchor: "start" as const },
-  { x: 120, y: 120, tx: 40, ty: 150, text: "Encolure", anchor: "start" as const },
-  { x: 165, y: 120, tx: 165, ty: 40, text: "Garrot", anchor: "middle" as const },
-  { x: 215, y: 122, tx: 230, ty: 38, text: "Dos", anchor: "middle" as const },
-  { x: 262, y: 126, tx: 300, ty: 45, text: "Rein", anchor: "middle" as const },
-  { x: 300, y: 138, tx: 360, ty: 60, text: "Croupe", anchor: "start" as const },
-  { x: 340, y: 175, tx: 388, ty: 150, text: "Queue", anchor: "start" as const },
-  { x: 158, y: 168, tx: 150, ty: 205, text: "Épaule", anchor: "end" as const },
-  { x: 132, y: 178, tx: 60, ty: 230, text: "Poitrail", anchor: "start" as const },
-  { x: 220, y: 212, tx: 210, ty: 250, text: "Ventre", anchor: "middle" as const },
-  { x: 275, y: 195, tx: 320, ty: 225, text: "Flanc", anchor: "start" as const },
-  { x: 160, y: 250, tx: 95, ty: 285, text: "Membre antérieur", anchor: "start" as const },
-  { x: 290, y: 250, tx: 300, ty: 292, text: "Membre postérieur", anchor: "start" as const },
-  { x: 160, y: 292, tx: 40, ty: 300, text: "Sabot", anchor: "start" as const },
+  { n: "Tête", x: 95, y: 150 },
+  { n: "Crinière", x: 178, y: 128 },
+  { n: "Encolure", x: 150, y: 168 },
+  { n: "Garrot", x: 206, y: 134 },
+  { n: "Dos", x: 258, y: 128 },
+  { n: "Rein", x: 300, y: 132 },
+  { n: "Croupe", x: 322, y: 140 },
+  { n: "Queue", x: 352, y: 185 },
+  { n: "Épaule", x: 198, y: 182 },
+  { n: "Poitrail", x: 184, y: 202 },
+  { n: "Ventre", x: 250, y: 216 },
+  { n: "Flanc", x: 296, y: 200 },
+  { n: "Membre antérieur", x: 208, y: 258 },
+  { n: "Membre postérieur", x: 312, y: 258 },
+  { n: "Sabot", x: 190, y: 300 },
 ];
 
 export default function ChevalParties({ showLabels }: { showLabels: boolean }) {
   return (
-    <figure className="w-full">
-      <svg
-        viewBox="0 0 420 320"
-        className="w-full text-brand-800 dark:text-brand-100"
-        role="img"
-        aria-label="Schéma des principales parties du cheval"
-      >
-        {/* Silhouette du cheval */}
-        <g className="fill-brand-200 stroke-brand-500 dark:fill-brand-700" strokeWidth={2}>
-          {/* Corps */}
-          <ellipse cx="222" cy="168" rx="98" ry="50" />
-          {/* Encolure */}
-          <polygon points="150,140 128,150 92,108 118,92" />
-          {/* Tête */}
-          <polygon points="118,92 92,108 60,120 48,112 56,92 78,78 100,78" />
-          {/* Oreille */}
-          <polygon points="98,80 104,62 112,82" />
-          {/* Membres antérieurs */}
-          <rect x="150" y="205" width="14" height="88" rx="4" />
-          <rect x="182" y="205" width="14" height="88" rx="4" />
-          {/* Membres postérieurs */}
-          <rect x="278" y="205" width="15" height="88" rx="4" />
-          <rect x="300" y="205" width="15" height="88" rx="4" />
-          {/* Queue */}
-          <path d="M318 150 q34 6 40 78 q-22 -30 -44 -40 z" />
+    <>
+      <svg viewBox="0 0 460 340" className="w-full" role="img" aria-label="Parties du cheval">
+        <rect x="0" y="0" width="460" height="340" rx="16" fill="#f6f4ef" />
+
+        {/* Pattes */}
+        <g fill="#b89b70" stroke="#5b442c" strokeWidth={2.5} strokeLinejoin="round">
+          <path d="M300 206 C304 240 301 270 300 292 C300 300 290 300 289 292 C287 266 286 236 283 210 Z" />
+          <path d="M324 204 C329 240 326 270 324 292 C324 300 314 300 313 292 C311 266 309 234 306 208 Z" />
+          <path d="M196 206 C199 240 196 270 195 292 C195 300 185 300 184 292 C182 266 181 236 179 210 Z" />
+          <path d="M218 208 C221 242 218 270 217 292 C217 300 207 300 206 292 C204 266 203 238 201 212 Z" />
         </g>
-        {/* Crinière */}
+        <g fill="#3f3022">
+          <path d="M183 291 L197 291 L198 303 L182 303 Z" />
+          <path d="M205 293 L219 293 L220 305 L204 305 Z" />
+          <path d="M288 291 L302 291 L303 303 L287 303 Z" />
+          <path d="M312 293 L326 293 L327 305 L311 305 Z" />
+        </g>
+
+        {/* Queue */}
         <path
-          d="M120 92 q6 -14 26 44"
-          className="fill-none stroke-brand-600 dark:stroke-brand-300"
-          strokeWidth={5}
-          strokeLinecap="round"
+          d="M330 150 C362 152 378 196 374 250 C366 226 356 206 338 197 C342 214 340 232 334 244 C326 226 322 196 320 166 Z"
+          fill="#6b4f30"
+          stroke="#4a3826"
+          strokeWidth={2}
         />
 
+        {/* Silhouette tête + encolure + corps */}
+        <path
+          d="M150 115 C175 118 195 122 205 132 C250 128 290 128 315 134 C326 138 332 146 333 158 C336 175 332 192 326 205 C320 214 300 218 280 218 C240 220 210 218 190 214 C184 210 182 206 182 200 C176 190 168 182 156 176 C150 173 144 172 140 172 C122 180 104 188 90 190 C80 191 74 188 72 182 C71 178 72 174 76 171 C96 158 120 140 138 124 C143 120 146 117 150 115 Z"
+          fill="#c0a882"
+          stroke="#5b442c"
+          strokeWidth={2.8}
+          strokeLinejoin="round"
+        />
+
+        {/* Oreilles */}
+        <g fill="#ac8d60" stroke="#5b442c" strokeWidth={2.5} strokeLinejoin="round">
+          <path d="M150 116 L148 94 L160 114 Z" />
+          <path d="M160 115 L169 96 L174 116 Z" />
+        </g>
+
+        {/* Crinière + toupet */}
+        <path
+          d="M150 116 C168 120 184 126 200 134 C204 142 202 150 196 156 C188 142 170 128 150 124 Z"
+          fill="#6b4f30"
+        />
+        <path d="M150 114 C156 106 161 106 160 117 Z" fill="#6b4f30" />
+
+        {/* Naseau + oeil */}
+        <ellipse cx="82" cy="179" rx="3" ry="4" fill="#3f3022" />
+        <circle cx="118" cy="150" r="3.6" fill="#3f3022" />
+
         {POINTS.map((p, i) => (
-          <Label key={p.text} {...p} n={i + 1} show={showLabels} />
+          <Pin key={p.n} x={p.x} y={p.y} n={i + 1} />
         ))}
       </svg>
-      {!showLabels && <NumberedLegend items={POINTS.map((p) => p.text)} />}
-    </figure>
+      {showLabels ? (
+        <NumberedLegend items={POINTS.map((p) => p.n)} />
+      ) : (
+        <p className="mt-3 text-center text-xs text-brand-500 dark:text-brand-300">
+          Retrouve chaque numéro, puis affiche les labels pour vérifier.
+        </p>
+      )}
+    </>
   );
 }
