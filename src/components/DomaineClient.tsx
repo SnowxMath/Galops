@@ -4,7 +4,7 @@ import Link from "next/link";
 import AppHeader from "@/components/AppHeader";
 import Disclaimer from "@/components/Disclaimer";
 import Markdown from "@/components/Markdown";
-import SchemaViewer from "@/components/SchemaViewer";
+import MemoList from "@/components/MemoList";
 import { getGalop, getDomaineContenu } from "@/content";
 import type { Domaine } from "@/content/types";
 import { DOMAINE_META } from "@/content/domaines";
@@ -46,8 +46,8 @@ export default function DomaineClient({ id, domaine }: { id: number; domaine: Do
               <h2 className="text-lg font-bold">{c.titre}</h2>
               <Markdown content={c.contenu} />
               {c.schemas?.map((s) =>
-                s.type === "svg" ? (
-                  <SchemaViewer key={s.id} id={s.id} legende={s.legende} />
+                s.type === "memo" && s.parties ? (
+                  <MemoList key={s.id} titre={s.legende} items={s.parties} />
                 ) : null,
               )}
               <p className="mt-3 border-t border-brand-100 pt-2 text-xs text-brand-400 dark:border-brand-700">
@@ -70,8 +70,8 @@ export default function DomaineClient({ id, domaine }: { id: number; domaine: Do
                       </li>
                     ))}
                   </ul>
-                  {f.schema && f.schema.type === "svg" && (
-                    <SchemaViewer id={f.schema.id} legende={f.schema.legende} />
+                  {f.schema && f.schema.type === "memo" && f.schema.parties && (
+                    <MemoList titre={f.schema.legende} items={f.schema.parties} />
                   )}
                 </article>
               ))}

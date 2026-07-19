@@ -116,12 +116,21 @@ Ajoute un objet `Question` dans le tableau `questions` du domaine concerné :
 > Garde toujours une `source` par item : ça permet de vérifier et mettre à jour
 > le contenu par rapport au programme officiel.
 
-### Ajouter un schéma SVG
+### Ajouter une carte mémo (liste à retenir)
 
-1. Crée un composant dans `src/content/schemas/` acceptant `{ showLabels }`.
-2. Enregistre-le dans `src/content/schemas/index.ts` (`SCHEMA_COMPONENTS`).
-3. Référence-le depuis un cours ou une fiche :
-   `schemas: [{ id: "mon-schema", type: "svg", legende: "…" }]`.
+Les listes de parties (cheval, selle, filet…) utilisent des **cartes mémo** :
+liste numérotée + bouton « Se tester » qui masque les noms pour s'auto-tester.
+Il suffit de l'ajouter dans un cours ou une fiche, dans la donnée :
+
+```ts
+schemas: [
+  { id: "cheval", type: "memo", legende: "Les parties du cheval",
+    parties: ["Tête", "Encolure", "Garrot", "…"] },
+]
+```
+
+(Le modèle `Schema` prévoit aussi `type: "image"` avec un `src` dans `/public`
+si tu ajoutes plus tard de vraies photos dont tu as les droits.)
 
 ## 📱 Installer en PWA
 

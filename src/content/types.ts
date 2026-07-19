@@ -29,13 +29,15 @@ export interface DomaineMeta {
   accent: string;
 }
 
-/** Un schéma / diagramme associé à un cours ou une fiche. */
+/** Un schéma / une carte mémo associée à un cours ou une fiche. */
 export interface Schema {
   id: string;
-  type: "svg" | "image";
+  type: "svg" | "image" | "memo";
   legende: string;
   /** Pour type "image" : chemin dans /public. Pour "svg" : id du composant enregistré. */
   src?: string;
+  /** Pour type "memo" : liste des éléments à mémoriser (ex. parties à nommer). */
+  parties?: string[];
 }
 
 /** Un cours (texte long en Markdown léger). */

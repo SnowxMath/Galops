@@ -54,8 +54,18 @@ Les principaux espaces : l'**écurie / les box**, la **sellerie** (où sont rang
           titre: "Le matériel : la selle et le filet",
           source: SRC,
           schemas: [
-            { id: "selle", type: "svg", legende: "Les parties de la selle" },
-            { id: "filet", type: "svg", legende: "Les parties du filet" },
+            {
+              id: "selle",
+              type: "memo",
+              legende: "Les parties de la selle",
+              parties: ["Pommeau", "Troussequin", "Siège", "Quartier", "Étrivière", "Étrier", "Sangle"],
+            },
+            {
+              id: "filet",
+              type: "memo",
+              legende: "Les parties du filet",
+              parties: ["Têtière", "Frontal", "Montant", "Muserolle", "Sous-gorge", "Mors", "Rêne"],
+            },
           ],
           contenu: `Savoir **nommer** les principales parties du harnachement.
 
@@ -237,7 +247,30 @@ Eau fraîche à volonté, nourriture (herbe/foin), un abri, la compagnie d'autre
           id: "g1-cc-allures-robes",
           titre: "Les allures, les robes et le corps du cheval",
           source: SRC,
-          schemas: [{ id: "cheval", type: "svg", legende: "Les principales parties du cheval" }],
+          schemas: [
+            {
+              id: "cheval",
+              type: "memo",
+              legende: "Les principales parties du cheval",
+              parties: [
+                "Tête",
+                "Encolure",
+                "Crinière",
+                "Garrot",
+                "Dos",
+                "Rein",
+                "Croupe",
+                "Queue",
+                "Épaule",
+                "Poitrail",
+                "Flanc",
+                "Ventre",
+                "Membres antérieurs",
+                "Membres postérieurs",
+                "Sabot",
+              ],
+            },
+          ],
           contenu: `### Les 3 allures
 - **Le pas** : allure la plus **lente**, marchée, à **4 temps**.
 - **Le trot** : allure **sautée**, à **2 temps** (les membres bougent en diagonale).
@@ -257,7 +290,28 @@ Tête, **encolure** (le cou), **garrot** (base de l'encolure, point le plus haut
           id: "g1-cc-fiche",
           titre: "Fiche mémo — Connaître le cheval",
           source: SRC,
-          schema: { id: "cheval", type: "svg", legende: "Les principales parties du cheval" },
+          schema: {
+            id: "cheval",
+            type: "memo",
+            legende: "Les principales parties du cheval",
+            parties: [
+              "Tête",
+              "Encolure",
+              "Crinière",
+              "Garrot",
+              "Dos",
+              "Rein",
+              "Croupe",
+              "Queue",
+              "Épaule",
+              "Poitrail",
+              "Flanc",
+              "Ventre",
+              "Membres antérieurs",
+              "Membres postérieurs",
+              "Sabot",
+            ],
+          },
           points_cles: [
             "Herbivore + grégaire + animal de proie (réaction = fuite).",
             "Pas = 4 temps (lent) · Trot = 2 temps · Galop = 3 temps.",
