@@ -1,16 +1,19 @@
 /* Service worker — offline-first pour la PWA Galops.
+ * Compatible racine (/) ET sous-chemin (/Galops/) : tout est calculé
+ * à partir du scope d'enregistrement.
  * Stratégies :
- *  - navigations  : network-first, repli sur le cache puis sur la page d'accueil.
- *  - assets Next  : cache-first (stale-while-revalidate en tâche de fond).
+ *  - navigations : network-first, repli sur le cache puis sur la page d'accueil.
+ *  - assets Next : cache-first (stale-while-revalidate en tâche de fond).
  */
-const CACHE = "galops-v1";
-const SHELL = ["/", "/cours", "/qcm", "/reviser", "/profil", "/manifest.webmanifest"];
+const CACHE = "galops-v2";
+// Chemin de base = pathname du scope (ex. "/" ou "/Galops/").
+const BASE = new URL(self.registration.scope).pathname;
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE)
-      .then((c) => c.addAll(SHELL).catch(() => undefined))
+      .then((c) => c.add(BASE).catch(() => undefined))
       .then(() => self.skipWaiting()),
   );
 });
@@ -26,8 +29,8 @@ self.addEventListener("activate", (event) => {
 
 function isStaticAsset(url) {
   return (
-    url.pathname.startsWith("/_next/static/") ||
-    url.pathname.startsWith("/icons/") ||
+    url.pathname.includes("/_next/static/") ||
+    url.pathname.includes("/icons/") ||
     /\.(?:css|js|woff2?|png|jpg|jpeg|svg|webp|ico)$/.test(url.pathname)
   );
 }
@@ -48,7 +51,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE).then((c) => c.put(request, copy));
           return res;
         })
-        .catch(async () => (await caches.match(request)) || (await caches.match("/"))),
+        .catch(async () => (await caches.match(request)) || (await caches.match(BASE))),
     );
     return;
   }

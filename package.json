@@ -5,6 +5,7 @@
   "description": "WebApp mobile-first (PWA) de révision des Galops FFE",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/gen-manifest.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

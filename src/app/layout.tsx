@@ -2,12 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import ClientInit from "@/components/ClientInit";
+import { BASE_PATH } from "@/lib/base-path";
 
 export const metadata: Metadata = {
   title: "Galops — Révise tes Galops FFE",
   description:
     "Cours, fiches, QCM corrigés et gamification pour réviser tes Galops FFE (1 à 7). Mobile-first, installable, utilisable hors-ligne.",
-  manifest: "/manifest.webmanifest",
+  manifest: `${BASE_PATH}/manifest.webmanifest`,
   applicationName: "Galops",
   appleWebApp: {
     capable: true,
@@ -15,8 +16,8 @@ export const metadata: Metadata = {
     title: "Galops",
   },
   icons: {
-    icon: [{ url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }],
-    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
+    icon: [{ url: `${BASE_PATH}/icons/icon-192.png`, sizes: "192x192", type: "image/png" }],
+    apple: [{ url: `${BASE_PATH}/icons/apple-touch-icon.png`, sizes: "180x180" }],
   },
 };
 
