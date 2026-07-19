@@ -79,6 +79,23 @@ export default function HomePage() {
         ))}
       </section>
 
+      {/* Comment réviser ? */}
+      <details className="card">
+        <summary className="cursor-pointer list-none font-bold">
+          <span className="mr-1">💡</span> Comment réviser ?
+          <span className="float-right text-brand-400">▾</span>
+        </summary>
+        <ul className="mt-3 space-y-2 text-sm text-brand-600 dark:text-brand-300">
+          <li><strong className="text-prairie-600 dark:text-prairie-400">📖 Cours</strong> — tu lis les notions, domaine par domaine.</li>
+          <li><strong className="text-prairie-600 dark:text-prairie-400">🗂️ Fiches</strong> — les points-clés en résumé + des cartes mémo pour t'auto-tester.</li>
+          <li><strong className="text-prairie-600 dark:text-prairie-400">❓ QCM</strong> — tu réponds, la correction s'affiche <em>tout de suite</em> avec le pourquoi. Les questions ratées reviennent plus souvent (option « révision intelligente »).</li>
+          <li><strong className="text-prairie-600 dark:text-prairie-400">✅ Checklist</strong> — tu coches ce que tu sais faire ; ça fait monter ta barre de progression.</li>
+        </ul>
+        <p className="mt-2 text-xs text-brand-500 dark:text-brand-400">
+          Chaque bonne réponse te donne des XP → tu montes de niveau et débloques des badges. 🏅
+        </p>
+      </details>
+
       {/* Galops */}
       <section className="space-y-3">
         <h2 className="px-1 text-lg font-extrabold">Tes Galops</h2>

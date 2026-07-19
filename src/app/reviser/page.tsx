@@ -4,7 +4,7 @@ import { useState } from "react";
 import AppHeader from "@/components/AppHeader";
 import Disclaimer from "@/components/Disclaimer";
 import ProgressBar from "@/components/ProgressBar";
-import SchemaViewer from "@/components/SchemaViewer";
+import MemoList from "@/components/MemoList";
 import { GALOPS, galopHasContent, getGalop } from "@/content";
 import { DOMAINE_META } from "@/content/domaines";
 import { useProgress, useProgressActions } from "@/lib/store";
@@ -75,8 +75,8 @@ export default function ReviserPage() {
                     </li>
                   ))}
                 </ul>
-                {f.schema && f.schema.type === "svg" && (
-                  <SchemaViewer id={f.schema.id} legende={f.schema.legende} />
+                {f.schema && f.schema.type === "memo" && f.schema.parties && (
+                  <MemoList titre={f.schema.legende} items={f.schema.parties} />
                 )}
               </article>
             )),
