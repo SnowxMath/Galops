@@ -13,51 +13,53 @@ html {
 body {
   @apply bg-brand-50 text-brand-900 antialiased dark:bg-brand-900 dark:text-brand-50;
   overscroll-behavior-y: none;
+  background-image: radial-gradient(120% 60% at 50% -10%, rgba(16, 185, 129, 0.08), transparent 60%);
+  background-attachment: fixed;
 }
 
 /* Zone de contenu : marge basse pour la barre de navigation. */
 .app-main {
-  padding-bottom: calc(5.5rem + var(--safe-bottom));
+  padding-bottom: calc(5.75rem + var(--safe-bottom));
 }
 
 @layer components {
   .card {
-    @apply rounded-2xl border border-brand-200 bg-white p-4 shadow-sm dark:border-brand-700 dark:bg-brand-800;
+    @apply rounded-3xl border border-brand-200/70 bg-white p-5 shadow-soft dark:border-brand-700/60 dark:bg-brand-800;
   }
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-base font-semibold transition active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-base font-bold transition-all active:scale-[0.97];
   }
   .btn-primary {
-    @apply btn bg-prairie-500 text-white hover:bg-prairie-600 disabled:opacity-50;
+    @apply btn bg-prairie-500 text-white shadow-pop hover:bg-prairie-600 disabled:opacity-40 disabled:shadow-none;
   }
   .btn-secondary {
-    @apply btn border border-brand-300 bg-white text-brand-800 hover:bg-brand-100 dark:border-brand-600 dark:bg-brand-800 dark:text-brand-100 dark:hover:bg-brand-700;
+    @apply btn border border-brand-200 bg-white text-brand-800 hover:bg-brand-100 dark:border-brand-600 dark:bg-brand-800 dark:text-brand-100 dark:hover:bg-brand-700;
   }
   .chip {
-    @apply inline-flex items-center gap-1 rounded-full border border-brand-300 px-3 py-1.5 text-sm font-medium dark:border-brand-600;
+    @apply inline-flex items-center gap-1 rounded-full border border-brand-200 bg-white px-3.5 py-2 text-sm font-semibold text-brand-700 transition active:scale-95 dark:border-brand-600 dark:bg-brand-800 dark:text-brand-200;
   }
   .chip-active {
-    @apply border-prairie-500 bg-prairie-500 text-white;
+    @apply border-prairie-500 bg-prairie-500 text-white shadow-pop dark:border-prairie-500 dark:bg-prairie-500 dark:text-white;
   }
 }
 
 /* Rendu Markdown léger */
 .prose-galop h3 {
-  @apply mb-1 mt-4 text-base font-bold text-brand-700 dark:text-brand-200;
+  @apply mb-1 mt-5 text-base font-extrabold text-prairie-700 dark:text-prairie-400;
 }
 .prose-galop p {
   @apply my-2 leading-relaxed;
 }
 .prose-galop ul {
-  @apply my-2 space-y-1.5 pl-1;
+  @apply my-2 space-y-2 pl-1;
 }
 .prose-galop li {
   @apply flex gap-2 leading-relaxed;
 }
 .prose-galop li::before {
-  content: "•";
-  @apply text-prairie-500;
+  content: "";
+  @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prairie-500;
 }
 .prose-galop strong {
-  @apply font-semibold text-brand-900 dark:text-white;
+  @apply font-bold text-brand-900 dark:text-white;
 }

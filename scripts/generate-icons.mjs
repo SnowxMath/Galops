@@ -13,7 +13,7 @@ const outDir = join(__dirname, "..", "public", "icons");
 /** Logo : fer à cheval blanc sur fond vert prairie. */
 function logoSVG(size, { maskable = false } = {}) {
   const pad = maskable ? size * 0.16 : 0; // marge de sécurité pour l'icône maskable
-  const bg = "#3f8a52";
+  const bg = "#10b981";
   const inner = size - pad * 2;
   const cx = size / 2;
   const cy = size / 2;

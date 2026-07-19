@@ -21,8 +21,8 @@ const manifest = {
   scope: `${base}/`,
   display: "standalone",
   orientation: "portrait",
-  background_color: "#f6f4ef",
-  theme_color: "#3f8a52",
+  background_color: "#f5f8f6",
+  theme_color: "#10b981",
   lang: "fr",
   categories: ["education", "sports"],
   icons: [

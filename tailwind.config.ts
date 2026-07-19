@@ -2,29 +2,44 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: "class",
-  content: [
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        // Palette "équestre" : brun cuir, vert prairie, sable
+        // Neutres (fond, texte, bordures) — gris légèrement teintés de vert,
+        // pour un rendu clair et moderne plutôt que « marron ».
         brand: {
-          50: "#f6f4ef",
-          100: "#e9e2d5",
-          200: "#d6c7ae",
-          300: "#c0a882",
-          400: "#ac8d60",
-          500: "#8f6f45",
-          600: "#725636",
-          700: "#5b442c",
-          800: "#4a3826",
-          900: "#3f3022",
+          50: "#f5f8f6",
+          100: "#e9f0ec",
+          200: "#d7e3dc",
+          300: "#b6c8bf",
+          400: "#8aa298",
+          500: "#647a70",
+          600: "#4b5d55",
+          700: "#384741",
+          800: "#212b27",
+          900: "#141a17",
         },
+        // Accent principal : vert vif (émeraude).
         prairie: {
-          400: "#5aa469",
-          500: "#3f8a52",
-          600: "#2f6d40",
+          50: "#e9fbf1",
+          400: "#34d399",
+          500: "#10b981",
+          600: "#059669",
+          700: "#047857",
+        },
+        // Accent chaleureux : ambre (XP, séries, badges).
+        accent: {
+          50: "#fffbeb",
+          400: "#fbbf24",
+          500: "#f59e0b",
+          600: "#d97706",
+        },
+        // Accent secondaire ludique : bleu ciel (variété visuelle).
+        sky2: {
+          400: "#38bdf8",
+          500: "#0ea5e9",
+          600: "#0284c7",
         },
       },
       fontFamily: {
@@ -32,6 +47,12 @@ const config: Config = {
       },
       borderRadius: {
         xl2: "1.25rem",
+        "3xl": "1.5rem",
+      },
+      boxShadow: {
+        soft: "0 2px 10px rgba(16,24,20,0.06), 0 1px 3px rgba(16,24,20,0.05)",
+        card: "0 4px 16px rgba(16,24,20,0.07)",
+        pop: "0 8px 24px rgba(16,185,129,0.20)",
       },
     },
   },
