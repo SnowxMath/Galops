@@ -5,6 +5,7 @@ import AppHeader from "@/components/AppHeader";
 import Disclaimer from "@/components/Disclaimer";
 import ProgressBar from "@/components/ProgressBar";
 import MemoList from "@/components/MemoList";
+import AnnotatedImage from "@/components/AnnotatedImage";
 import { GALOPS, galopHasContent, getGalop } from "@/content";
 import { DOMAINE_META } from "@/content/domaines";
 import { useProgress, useProgressActions } from "@/lib/store";
@@ -75,9 +76,15 @@ export default function ReviserPage() {
                     </li>
                   ))}
                 </ul>
-                {f.schema && f.schema.type === "memo" && f.schema.parties && (
+                {f.schema && f.schema.type === "image" && f.schema.src && f.schema.points ? (
+                  <AnnotatedImage
+                    titre={f.schema.legende}
+                    src={f.schema.src}
+                    points={f.schema.points}
+                  />
+                ) : f.schema && f.schema.type === "memo" && f.schema.parties ? (
                   <MemoList titre={f.schema.legende} items={f.schema.parties} />
-                )}
+                ) : null}
               </article>
             )),
           )}

@@ -29,6 +29,16 @@ export interface DomaineMeta {
   accent: string;
 }
 
+/** Une pastille numérotée posée sur une image annotée (coordonnées en %). */
+export interface PointAnnotation {
+  /** Nom de la partie (ex. « Garrot »). */
+  label: string;
+  /** Position horizontale de la pastille, en % de la largeur (0–100). */
+  x: number;
+  /** Position verticale de la pastille, en % de la hauteur (0–100). */
+  y: number;
+}
+
 /** Un schéma / une carte mémo associée à un cours ou une fiche. */
 export interface Schema {
   id: string;
@@ -38,6 +48,8 @@ export interface Schema {
   src?: string;
   /** Pour type "memo" : liste des éléments à mémoriser (ex. parties à nommer). */
   parties?: string[];
+  /** Pour type "image" : pastilles numérotées à superposer + légende « se tester ». */
+  points?: PointAnnotation[];
 }
 
 /** Un cours (texte long en Markdown léger). */
