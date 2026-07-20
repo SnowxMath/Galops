@@ -5,6 +5,7 @@ import AppHeader from "@/components/AppHeader";
 import Disclaimer from "@/components/Disclaimer";
 import Markdown from "@/components/Markdown";
 import MemoList from "@/components/MemoList";
+import AnnotatedImage from "@/components/AnnotatedImage";
 import { getGalop, getDomaineContenu } from "@/content";
 import type { Domaine } from "@/content/types";
 import { DOMAINE_META } from "@/content/domaines";
@@ -46,7 +47,9 @@ export default function DomaineClient({ id, domaine }: { id: number; domaine: Do
               <h2 className="text-lg font-bold">{c.titre}</h2>
               <Markdown content={c.contenu} />
               {c.schemas?.map((s) =>
-                s.type === "memo" && s.parties ? (
+                s.type === "image" && s.src && s.points ? (
+                  <AnnotatedImage key={s.id} titre={s.legende} src={s.src} points={s.points} />
+                ) : s.type === "memo" && s.parties ? (
                   <MemoList key={s.id} titre={s.legende} items={s.parties} />
                 ) : null,
               )}
@@ -70,9 +73,15 @@ export default function DomaineClient({ id, domaine }: { id: number; domaine: Do
                       </li>
                     ))}
                   </ul>
-                  {f.schema && f.schema.type === "memo" && f.schema.parties && (
+                  {f.schema && f.schema.type === "image" && f.schema.src && f.schema.points ? (
+                    <AnnotatedImage
+                      titre={f.schema.legende}
+                      src={f.schema.src}
+                      points={f.schema.points}
+                    />
+                  ) : f.schema && f.schema.type === "memo" && f.schema.parties ? (
                     <MemoList titre={f.schema.legende} items={f.schema.parties} />
-                  )}
+                  ) : null}
                 </article>
               ))}
             </section>
